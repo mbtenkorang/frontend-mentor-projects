@@ -4,6 +4,8 @@
   font-weight: 400;
 
   /* Colors */
+  --Purple: hsl(259, 100%, 65%);
+  --Lightred: hsl(0, 100%, 67%);
   --White: hsl(0, 0%, 100%);
   --Offwhite: hsl(0, 0%, 94%);
   --Lightgrey: hsl(0, 0%, 86%);
@@ -36,9 +38,4 @@
   src: url("./fonts/Poppins-ExtraBoldItalic.ttf");
   font-style: italic;
   font-weight: 800;
-}
-
-p {
-  font-weight: 800;
-  font-style: italic;
 }
