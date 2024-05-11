@@ -1,5 +1,7 @@
 import { createApp } from "vue";
-import "./assets/style.css";
+import { plugin,defaultConfig } from "@formkit/vue";
+import { rootClasses } from "../formkit.theme.mjs";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+
+createApp(App).use(plugin, defaultConfig({config:{rootClasses}})).mount("#app");
