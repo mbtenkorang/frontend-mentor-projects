@@ -1,65 +1,81 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const formData = ref({
-  day: "",
-  month: "",
-  year: "",
-});
+const currentDate = new Date();
+const formattedDate = {
+  currentDay: currentDate.getDate(),
+  currentMonth: currentDate.getMonth(),
+  currentYear: currentDate.getFullYear(),
+};
 
 const userAge = ref({ years: "--", months: "--", days: "--" });
 
 const handleSubmit = (data) => {
-  console.log(`${day.value} ${month.value} ${year.value}`);
+  console.log(data);
+  // console.log(formattedDate);
 };
 </script>
 
 <template>
   <div>
     <FormKit
-      name="age-calculator"
+      name="currentAge"
       type="form"
-      :value="formData"
-      :classes="{
-        outer: '',
-        inner: '',
-      }"
       @submit="handleSubmit"
+      submit-label="calculate age"
     >
       <FormKit
         name="day"
         id="day"
         type="text"
-        label="DAY"
+        label="day"
         placeholder="DD"
         validation="required"
         :validation-messages="{ matches: 'Must be a valid day' }"
         :classes="{
-          label: 'text-orange-700 font-extrabold text-xl',
+          label:
+            'uppercase font-poppins text-[400] text-xs text-smokeygrey tracking-[3px] mb-3',
+          inner: 'border-lightgrey max-w-[5em]',
+          placeholder: 'text-lightgrey font-bold',
         }"
-        help="Must be a number"
       />
       <FormKit
         name="month"
         id="month"
         type="text"
-        label="MONTH"
+        label="month"
         placeholder="MM"
         validation="min:1|max:12"
         min="1"
         max="12"
+        :classes="{
+          label:
+            'uppercase font-poppins text-light text-xs text-smokeygrey tracking-widest mb-3',
+          inner: 'border-lightgrey max-w-[5em]',
+        }"
       />
       <FormKit
         name="year"
         id="year"
         type="text"
-        label="YEAR"
+        label="year"
         placeholder="YYYY"
         validation="required"
+        :classes="{
+          label:
+            'uppercase font-poppins text-light text-xs text-smokeygrey tracking-widest mb-3',
+          inner: 'border-lightgrey max-w-[5em]',
+        }"
       />
     </FormKit>
-    <p>{{ userAge.years }} years</p>
-    <p>{{ userAge.months }} months</p>
-    <p>{{ userAge.days }} days</p>
+    <p class="result">
+      <span class="result-number">{{ userAge.years }}</span> years
+    </p>
+    <p class="result">
+      <span class="result-number">{{ userAge.months }}</span> months
+    </p>
+    <p class="result">
+      <span class="result-number">{{ userAge.days }}</span> days
+    </p>
   </div>
 </template>
