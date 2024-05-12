@@ -15,7 +15,7 @@ export default {
         offblack: "hsl(0, 0%, 8%)",
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        'poppins': ["Poppins", "sans-serif"],
       },
     },
   },
