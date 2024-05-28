@@ -10,9 +10,9 @@ const formattedDate = {
 
 const userAge = ref({ years: "--", months: "--", days: "--" });
 
-const handleSubmit = (data) => {
+const handleSubmit = (data, node) => {
   console.log(data);
-  // console.log(formattedDate);
+  node.setErrors(["Form incomplete"]);
 };
 </script>
 
@@ -33,10 +33,12 @@ const handleSubmit = (data) => {
         validation="required"
         :validation-messages="{ matches: 'Must be a valid day' }"
         :classes="{
+          outer: 'max-w-[6rem]',
           label:
             'uppercase font-poppins text-[400] text-xs text-smokeygrey tracking-[3px] mb-3',
-          inner: 'border-lightgrey max-w-[5em]',
+          inner: 'border-lightgrey max-w-[6rem]',
           placeholder: 'text-lightgrey font-bold',
+          input: 'max-w-[5rem]',
         }"
       />
       <FormKit
@@ -49,9 +51,11 @@ const handleSubmit = (data) => {
         min="1"
         max="12"
         :classes="{
+          outer: 'max-w-[6rem]',
           label:
             'uppercase font-poppins text-light text-xs text-smokeygrey tracking-widest mb-3',
-          inner: 'border-lightgrey max-w-[5em]',
+          inner: 'border-lightgrey max-w-[6rem]',
+          input: 'max-w-[5rem]',
         }"
       />
       <FormKit
@@ -62,9 +66,11 @@ const handleSubmit = (data) => {
         placeholder="YYYY"
         validation="required"
         :classes="{
+          outer: 'max-w-[6rem]',
           label:
             'uppercase font-poppins text-light text-xs text-smokeygrey tracking-widest mb-3',
-          inner: 'border-lightgrey max-w-[5em]',
+          inner: 'border-lightgrey max-w-[6rem]',
+          input: 'max-w-[5rem]',
         }"
       />
     </FormKit>
